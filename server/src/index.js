@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const songRoutes = require('./routes/songRoutes');
+
 
 dotenv.config();
 
@@ -10,6 +12,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use('/api', songRoutes);
 
 const PORT = process.env.PORT || 5000;
 
